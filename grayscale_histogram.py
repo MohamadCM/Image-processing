@@ -1,22 +1,22 @@
 from PIL import Image
+from RGB_to_grayscale import calculate_grayscale
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 def calculate_histogram(image):
-    grayscale_image = Image.open(image).convert('LA')
-    grayscale_array = np.asarray(grayscale_image)
+    grayscale_array = calculate_grayscale(image)
     x_range = [0] * 256
     for i in range(grayscale_array.shape[0]):
         for j in range(grayscale_array.shape[1]):
-            value = grayscale_array[i, j, 0]
+            value = grayscale_array[i, j]
             x_range[value] = x_range[value] + 1
     return x_range
 
 
 def main():
-    print("Calculating grayscale histogram...")
     img = input("Please enter images name: ")
+    print("Calculating grayscale histogram...")
     histogram = calculate_histogram(img)
     plt.plot(np.array(histogram), "-k")
     plt.title("Grayscale histogram")
