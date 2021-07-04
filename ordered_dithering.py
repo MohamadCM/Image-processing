@@ -64,11 +64,6 @@ def main():
     grayscale_array = calculate_grayscale(input_image)
     result = calculate_ordered_dithering(grayscale_array, threshold_map)
     # Showing results
-    fig = plt.figure()
-
-    fig.set_figheight(20)
-    fig.set_figwidth(20)
-
     plt.axis('off')
     plt.title("Normal grayscale image")
     plt.imshow(grayscale_array, cmap='gray', vmin=0, vmax=255)
