@@ -55,20 +55,15 @@ def main():
     input_image = input("Please enter image's name: ")
     n = input("Please enter map's size (n): ")
     print("Calculating")
-    print_line()
+    # print_line()
     threshold_map = 255 * create_threshold_map(int(n))
-    print("Grayscale threshold map:")
-    print(threshold_map)
-    print_line("-")
+    # print("Grayscale threshold map:")
+    # print(threshold_map)
+    # print_line("-")
     # Calculating
     grayscale_array = calculate_grayscale(input_image)
     result = calculate_ordered_dithering(grayscale_array, threshold_map)
     # Showing results
-    fig = plt.figure()
-
-    fig.set_figheight(20)
-    fig.set_figwidth(20)
-
     plt.axis('off')
     plt.title("Normal grayscale image")
     plt.imshow(grayscale_array, cmap='gray', vmin=0, vmax=255)
