@@ -24,7 +24,7 @@ def calculate_colored_histogram(image):
 
 
 def main():
-    input_image = "image.jpg"  # input("Please enter images name: ")
+    input_image = input("Please enter images name: ")
     print("Calculating colored histogram...")
     histograms = calculate_colored_histogram(input_image)
     red_range, green_range, blue_range = histograms[0], histograms[1], histograms[2]
@@ -33,6 +33,8 @@ def main():
     plt.bar(x_axis, red_range, color='r')
     plt.bar(x_axis, green_range, color='g')
     plt.bar(x_axis, blue_range, color='b')
+    plt.xlabel("Intensity")
+    plt.ylabel("Frequency")
     plt.show()
     print("Done!")
 
